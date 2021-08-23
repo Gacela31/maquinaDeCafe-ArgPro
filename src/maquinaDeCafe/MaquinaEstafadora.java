@@ -1,0 +1,22 @@
+package maquinaDeCafe;
+
+public class MaquinaEstafadora extends MaquinaPremium {
+	
+	private boolean yaEstafe = true;
+	
+	public MaquinaEstafadora() {
+		super();
+	}
+	
+	@Override
+	public VasoDeCafe servirCafe() {
+		if (yaEstafe) {
+			this.yaEstafe = false;
+			return super.servirCafe();
+		}
+		else {
+			this.yaEstafe = true;
+			return new VasoDeCafe(false);
+		}
+	}
+}
